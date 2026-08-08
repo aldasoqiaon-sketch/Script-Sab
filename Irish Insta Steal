@@ -1,0 +1,84 @@
+-- dumped by SASUKEONTOP 
+local _LocalPlayer6 =game:GetService("Players")["LocalPlayer"]
+local _call8 =_LocalPlayer6:WaitForChild("PlayerGui")
+local _workspaceCurrentCamera9 =workspace["CurrentCamera"]
+local _call13 =Instance["new"]("ScreenGui")
+_call13["Name"] ="IrishHubGui"
+_call13["ResetOnSpawn"] =false
+_call13["DisplayOrder"] =999
+_call13["Parent"] =game:GetService("CoreGui")
+local _call17 =Instance["new"]("Frame")
+_call17["Size"] =UDim2["new"](0, 200, 0, 98)
+_call17["Position"] =UDim2["new"](1, -215, 0, 10)
+_call17["BackgroundColor3"] =Color3["fromRGB"](0, 0, 0)
+_call17["BorderSizePixel"] =0
+_call17["ZIndex"] =999
+_call17["Parent"] =_call13
+local _call25 =Instance["new"]("UICorner", _call17)
+_call25["CornerRadius"] =UDim["new"](0, 10)
+local _call29 =Instance["new"]("UIStroke", _call17)
+_call29["Thickness"] =2.5
+_call29["Color"] =Color3["fromRGB"](0, 255, 85)
+local _call33 =Instance["new"]("TextLabel")
+_call33["Size"] =UDim2["new"](1, -20, 0, 26)
+_call33["Position"] =UDim2["new"](0, 10, 0, 6)
+_call33["BackgroundTransparency"] =1
+_call33["TextColor3"] =Color3["fromRGB"](0, 255, 85)
+_call33["Text"] ="Irish Hub"
+_call33["Font"] =Enum["Font"]["GothamBold"]
+_call33["TextSize"] =14
+_call33["TextXAlignment"] =Enum["TextXAlignment"]["Left"]
+_call33["ZIndex"] =1000
+_call33["Parent"] =_call17
+local _call45 =Instance["new"]("TextButton")
+_call45["Size"] =UDim2["new"](1, -20, 0, 32)
+_call45["Position"] =UDim2["new"](0, 10, 0, 38)
+_call45["BackgroundColor3"] =Color3["fromRGB"](15, 15, 15)
+_call45["TextColor3"] =Color3["fromRGB"](0, 255, 85)
+_call45["Text"] ="Insta Reset"
+_call45["Font"] =Enum["Font"]["GothamBold"]
+_call45["TextSize"] =12
+_call45["AutoButtonColor"] =false
+_call45["ZIndex"] =1000
+_call45["Parent"] =_call17
+local _call57 =Instance["new"]("UICorner", _call45)
+_call57["CornerRadius"] =UDim["new"](0, 6)
+local _call61 =Instance["new"]("TextLabel")
+_call61["Size"] =UDim2["new"](1, -20, 0, 14)
+_call61["Position"] =UDim2["new"](0, 10, 0, 76)
+_call61["BackgroundTransparency"] =1
+_call61["TextColor3"] =Color3["fromRGB"](0, 255, 85)
+_call61["Text"] ="discord.gg/irsh"
+_call61["Font"] =Enum["Font"]["Gotham"]
+_call61["TextSize"] =9
+_call61["TextXAlignment"] =Enum["TextXAlignment"]["Center"]
+_call61["ZIndex"] =1000
+_call61["Parent"] =_call17
+local _call74 =_call45["Activated"]:Connect(function(_75)
+local _Character76 =_LocalPlayer6["Character"]
+local _call78 =_Character76:FindFirstChild("HumanoidRootPart")
+_workspaceCurrentCamera9["CameraType"] =Enum["CameraType"]["Scriptable"]
+local _call84 =task["delay"](0.6, function(_85)
+local _Character86 =_LocalPlayer6["Character"]
+local _call89 =_LocalPlayer6["Character"]:FindFirstChildOfClass("Humanoid")
+_workspaceCurrentCamera9["CameraType"] =Enum["CameraType"]["Custom"]
+_workspaceCurrentCamera9["CameraSubject"] =_LocalPlayer6["Character"]:FindFirstChildOfClass("Humanoid")
+end)
+_call78["CFrame"] =CFrame["new"](1000003.56, 999999.69, 8.17)
+local _call97 =game:GetService("RunService")["Heartbeat"]:Connect(function(_98, _98_2, _98_3, _98_4, _98_5)
+local _Parent99 =_Character76["Parent"]
+local _Health100 =_Character76:FindFirstChildOfClass("Humanoid")["Health"]
+local er =error("line 1: attempt to compare table <= number")
+end)
+end)
+local _call103 =_call17["InputBegan"]:Connect(function(_104, _104_2)
+local _108 =(_104["UserInputType"]==Enum["UserInputType"]["MouseButton1"])
+local _112 =(_104["UserInputType"]==Enum["UserInputType"]["Touch"])
+end)
+local _call115 =_call17["InputChanged"]:Connect(function(_116, _116_2)
+
+end)
+local _call119 =_call17["InputEnded"]:Connect(function(_120, _120_2, _120_3)
+local _124 =(_120["UserInputType"]==Enum["UserInputType"]["MouseButton1"])
+local _128 =(_120["UserInputType"]==Enum["UserInputType"]["Touch"])
+end)d)
