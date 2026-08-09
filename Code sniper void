@@ -1,0 +1,100 @@
+-- ===== SAFETY FALLBACK FOR table.clear =====
+if not table.clear then
+    function table.clear(t)
+        for k in pairs(t) do
+            t[k] = nil
+        end
+    end
+end
+
+_G.ScriptEnabled = true
+_G.AutoWriteEnabled = false
+_G.AutoSubmitEnabled = false
+_G.RiddleSolverEnabled = false
+_G.SubmitAfterCount = 1
+_G.SubmitAttempts = 3
+
+-- ========== ABSOLUTE MAXIMUM SPEED ==========
+local FAST_WAIT = 0.000000000000000000000000000000000000000000000000000000000000000001
+local MAX_SPEED = true
+
+local enteredCodes = {}
+local activeConnections = {}
+
+local latestCode = nil
+local lastWrittenCode = nil
+local lastAttemptedCode = nil
+local lastSubmittedBatch = {}
+local autoWriteConn = nil
+
+local pendingQueue = {}
+local pendingSeen = {}
+local writeBusy = false
+
+local collectedCodes = {}
+local collectedSeen = {}
+local CODE_SEPARATOR = ""
+
+local ScreenGui = nil
+local MainFrame = nil
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+local HttpService = game:GetService("HttpService")
+
+-- ===== CONFIG PERSISTENCE =====
+local CONFIG_PATH = "FexHub_AutoCode_config.json"
+
+local hasFS = (writefile and readfile and isfile) and true or false
+
+local defaultConfig = {
+    panelX = nil,
+    panelY = nil,
+}
+
+local config = {}
+for k, v in pairs(defaultConfig) do config[k] = v end
+
+local function loadConfig()
+    if not hasFS then return end
+    if not isfile(CONFIG_PATH) then return end
+    local ok, data = pcall(function()
+        return HttpService:JSONDecode(readfile(CONFIG_PATH))
+    end)
+    if ok and type(data) == "table" then
+        for k in pairs(defaultConfig) do
+            if data[k] ~= nil then config[k] = data[k] end
+        end
+    end
+end
+
+local pendingSave = false
+local function saveConfig()
+    if not hasFS then return end
+    if pendingSave then return end
+    pendingSave = true
+    task.defer(function()
+        pendingSave = false
+        pcall(function()
+            writefile(CONFIG_PATH, HttpService:JSONEncode(config))
+        end)
+    end)
+end
+
+loadConfig()
+
+-- ===== COMPLETE STEAL A BRAINROT + SPYDERSAMMY DATABASE =====
+local SAB_DB = {
+    ["how old am i"] = "24",
+    ["how old is sammy"] = "24",
+    ["my age"] = "24",
+    ["sammy age"] = "24",
+    ["age"] = "24",
+    ["where am i from"] = "BRAZIL",
+    ["where is sammy from"] = "BRAZIL",
+    ["my country"] = "BRAZIL",
+    ["sammy country"] = "BRAZIL",... (24 KB left)
